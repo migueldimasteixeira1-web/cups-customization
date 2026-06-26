@@ -947,6 +947,27 @@ a:link:hover, a:visited:hover, a:active {
   margin-left: 0;
 }
 
+.row .halves h2.title {
+  margin-bottom: 14px;
+}
+
+.row .halves h2.title:not(:first-child) {
+  margin-top: 28px;
+}
+
+.row .halves > p {
+  margin: 0 0 22px;
+}
+
+.row .halves > form {
+  display: block;
+  max-width: 100%;
+}
+
+.row .halves > form p {
+  line-height: 1.85;
+}
+
 .cups-footer {
   align-items: center;
   background: #17212b;
@@ -1067,10 +1088,16 @@ button {
   background: var(--adcetei-blue-700);
   border: 1px solid var(--adcetei-blue-700);
   border-radius: 4px;
+  box-sizing: border-box;
   color: var(--adcetei-white);
   cursor: pointer;
   font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  max-width: 100%;
+  min-height: 34px;
   padding: 7px 12px;
+  white-space: normal;
 }
 
 input[type="submit"]:hover,
@@ -1097,6 +1124,23 @@ textarea {
 input[type="checkbox"],
 input[type="radio"] {
   accent-color: var(--adcetei-blue-700);
+}
+
+.cups-body p > form,
+table.list td form {
+  display: inline-flex;
+  margin: 0 8px 10px 0;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.cups-body p > form:last-child,
+table.list td form:last-child {
+  margin-right: 0;
+}
+
+label {
+  overflow-wrap: anywhere;
 }
 
 blockquote,
@@ -1149,6 +1193,10 @@ h3.title,
     margin: 0 0 18px;
     padding: 0 0 14px;
     width: 100%;
+  }
+
+  .row .halves h2.title:not(:first-child) {
+    margin-top: 22px;
   }
 
   table.list {
@@ -1224,6 +1272,28 @@ h3.title,
 
   input[type="search"] {
     flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .cups-body p > form {
+    display: flex;
+    margin: 0 0 10px;
+    width: 100%;
+  }
+
+  .cups-body p > form input[type="submit"],
+  .cups-body p > form input[type="button"] {
+    width: 100%;
+  }
+
+  table.list td form {
+    display: flex;
+    margin: 0 0 8px;
+    width: 100%;
+  }
+
+  table.list td form input[type="submit"],
+  table.list td form input[type="button"] {
     width: 100%;
   }
 }
