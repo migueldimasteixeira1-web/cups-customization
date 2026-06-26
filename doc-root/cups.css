@@ -1077,9 +1077,27 @@ form[action="/classes/"] p {
   justify-content: center;
 }
 
+.cups-body form:has(input[type="search"]) {
+  display: block;
+  margin: 18px 0 18px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.cups-body form:has(input[type="search"]) p {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 0;
+}
+
 input[type="search"] {
-  min-width: min(100%, 260px);
-  width: min(100%, 420px);
+  flex: 1 1 360px;
+  max-width: 520px;
+  min-width: min(100%, 240px);
+  width: auto;
 }
 
 table.inset {
@@ -1141,10 +1159,9 @@ table.list td form {
 }
 
 .cups-body form[action="/admin/"],
-.cups-body form[action="/printers/"],
-.cups-body form[action="/classes/"],
-.cups-body form[action="/jobs"],
-.cups-body form[action="/jobs/"],
+.cups-body form[action="/printers/"]:not(:has(input[type="search"])),
+.cups-body form[action="/classes/"]:not(:has(input[type="search"])),
+.cups-body form[action="/jobs"]:not(:has(input[type="search"])),
 table.list td form {
   display: inline-flex;
   margin: 0 10px 12px 0;
@@ -1153,11 +1170,36 @@ table.list td form {
 }
 
 .cups-body form[action="/admin/"] input[type="submit"],
-.cups-body form[action="/printers/"] input[type="submit"],
-.cups-body form[action="/classes/"] input[type="submit"],
-.cups-body form[action="/jobs"] input[type="submit"],
-.cups-body form[action="/jobs/"] input[type="submit"] {
+.cups-body form[action="/printers/"]:not(:has(input[type="search"])) input[type="submit"],
+.cups-body form[action="/classes/"]:not(:has(input[type="search"])) input[type="submit"],
+.cups-body form[action="/jobs"]:not(:has(input[type="search"])) input[type="submit"] {
   margin: 0;
+}
+
+.row .halves > p:has(> form) {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.row .halves > p:has(> form) > form {
+  margin: 0;
+}
+
+.cups-body > .row > form[action="/jobs"] {
+  display: inline-flex;
+  margin: 0 10px 18px 0;
+  vertical-align: top;
+}
+
+.cups-body > .row:has(> form[action="/jobs"]) {
+  text-align: center;
+}
+
+.cups-body > .row:has(> form[action="/jobs"]) > h1,
+.cups-body > .row:has(> form[action="/jobs"]) table {
+  text-align: left;
 }
 
 .cups-body p > form:last-child,
@@ -1296,6 +1338,10 @@ h3.title,
     text-align: left;
   }
 
+  .cups-body form:has(input[type="search"]) p {
+    justify-content: flex-start;
+  }
+
   input[type="search"] {
     flex: 1 1 100%;
     width: 100%;
@@ -1308,22 +1354,28 @@ h3.title,
   }
 
   .cups-body form[action="/admin/"],
-  .cups-body form[action="/printers/"],
-  .cups-body form[action="/classes/"],
-  .cups-body form[action="/jobs"],
-  .cups-body form[action="/jobs/"] {
+  .cups-body form[action="/printers/"]:not(:has(input[type="search"])),
+  .cups-body form[action="/classes/"]:not(:has(input[type="search"])),
+  .cups-body form[action="/jobs"]:not(:has(input[type="search"])) {
     display: flex;
     margin: 0 0 10px;
     width: 100%;
   }
 
+  .cups-body form:has(input[type="search"]) {
+    margin-bottom: 14px;
+  }
+
+  .cups-body form:has(input[type="search"]) input[type="submit"] {
+    flex: 1 1 auto;
+  }
+
   .cups-body p > form input[type="submit"],
   .cups-body p > form input[type="button"],
   .cups-body form[action="/admin/"] input[type="submit"],
-  .cups-body form[action="/printers/"] input[type="submit"],
-  .cups-body form[action="/classes/"] input[type="submit"],
-  .cups-body form[action="/jobs"] input[type="submit"],
-  .cups-body form[action="/jobs/"] input[type="submit"] {
+  .cups-body form[action="/printers/"]:not(:has(input[type="search"])) input[type="submit"],
+  .cups-body form[action="/classes/"]:not(:has(input[type="search"])) input[type="submit"],
+  .cups-body form[action="/jobs"]:not(:has(input[type="search"])) input[type="submit"] {
     width: 100%;
   }
 
