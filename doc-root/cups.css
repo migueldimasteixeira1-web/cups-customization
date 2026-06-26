@@ -976,6 +976,8 @@ table.indent {
 table.list {
   background: var(--adcetei-white);
   border: 1px solid rgba(82, 96, 109, 0.2);
+  border-collapse: collapse;
+  table-layout: fixed;
 }
 
 table.list th {
@@ -984,6 +986,8 @@ table.list th {
   border-right: 1px solid rgba(21, 92, 148, 0.12);
   color: var(--adcetei-blue-900);
   padding: 9px 12px;
+  vertical-align: top;
+  white-space: normal;
 }
 
 table.list td,
@@ -992,6 +996,16 @@ td.data,
 tr.data td {
   border-bottom: 1px solid rgba(82, 96, 109, 0.18);
   padding: 8px 12px;
+  vertical-align: top;
+}
+
+table.list td,
+table.list th,
+table.list a,
+tr.data,
+td.data {
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 table.list tr:nth-child(even),
@@ -1005,6 +1019,7 @@ table.list tr:nth-child(even) td {
 
 div.table table {
   border: 1px solid rgba(82, 96, 109, 0.22);
+  max-width: 100%;
 }
 
 div.table table th {
@@ -1015,6 +1030,29 @@ div.table table th {
 
 div.table table td {
   padding: 8px 12px;
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+
+div.table,
+div.summary {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+form[action="/printers/"] p,
+form[action="/jobs/"] p,
+form[action="/classes/"] p {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+input[type="search"] {
+  min-width: min(100%, 260px);
+  width: min(100%, 420px);
 }
 
 table.inset {
@@ -1112,6 +1150,18 @@ h3.title,
     padding: 0 0 14px;
     width: 100%;
   }
+
+  table.list {
+    display: block;
+    min-width: 720px;
+    overflow-x: auto;
+    table-layout: auto;
+    width: 100%;
+  }
+
+  .cups-body > .row {
+    overflow-x: auto;
+  }
 }
 
 @media only screen and (max-width: 640px) {
@@ -1159,5 +1209,21 @@ h3.title,
   div.table {
     display: block;
     overflow-x: auto;
+  }
+
+  table.list {
+    min-width: 640px;
+  }
+
+  form[action="/printers/"] p,
+  form[action="/jobs/"] p,
+  form[action="/classes/"] p {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  input[type="search"] {
+    flex: 1 1 100%;
+    width: 100%;
   }
 }
