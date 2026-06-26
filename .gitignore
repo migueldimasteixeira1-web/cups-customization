@@ -1,0 +1,20 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Backups locais
+*.bak
+*.backup
+backup/
+backups/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Temporários
+tmp/
+temp/
